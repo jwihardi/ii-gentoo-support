@@ -11,18 +11,24 @@ if status is-interactive # Commands to run in interactive sessions can go here
     # No greeting
     set fish_greeting
 
-    # Use starship
-    starship init fish | source
-    if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-        cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-    end
+    zoxide init fish | source
 
-    # Aliases
-    alias clear "printf '\033[2J\033[3J\033[1;1H'" # fix: kitty doesn't clear properly
-    alias celar "printf '\033[2J\033[3J\033[1;1H'"
-    alias claer "printf '\033[2J\033[3J\033[1;1H'"
-    alias ls 'eza --icons'
-    alias pamcan pacman
+    alias sudo 'sudo-rs'
+    alias ls 'eza --color=auto --icons'
+    alias cd 'z'
+    alias clear "printf '\033[2J\033[3J\033[1;1H'"
+    alias mkdir 'mkdir -p'
+    alias cat 'bat'
+
+    alias reboot 'loginctl reboot'
+    alias shutdown 'loginctl poweroff'
+
+    alias ff 'fastfetch'
     alias q 'qs -c ii'
-    
+    alias top 'btop'
+    alias vim 'nvim'
+
+    alias discord 'flatpak run dev.vencord.Vesktop'
+    alias spotify 'flatpak run com.spotify.Client'
+    alias steam 'flatpak run com.valvesoftware.Steam'
 end
