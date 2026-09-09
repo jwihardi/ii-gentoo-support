@@ -1,6 +1,7 @@
 ################### AUDIO ################### 
 media-sound/cava pipewire -pulseaudio
 #media-sound/pavucontrol-qt (no use flags)
+media-video/pipewire sound-server
 #media-video/wireplumber (no use flags)
 dev-libs/libdbusmenu gtk3 introspection
 media-sound/playerctl introspection
@@ -32,7 +33,7 @@ media-libs/fontconfig nls
 x11-terms/kitty X wayland
 #x11-misc/matugen
 #app-shell/starship (nothing needed)
-media-fonts/jetbrains-mono X
+media-fonts/nerdfonts jetbrainsmono
 media-fonts/twemoji X
 # The rest are handled in the ebuild
 
@@ -75,6 +76,7 @@ sys-apps/xdg-desktop-portal-gtk X wayland
 gui-libs/gtk X introspection wayland
 gui-libs/libadwaita introspection
 net-libs/libsoup brotli introspection ssl
+dev-libs/libportal gtk
 #dev-libs/gobject-introspection (nothing needed)
 # dart-sassc handled in the ebuild
 
