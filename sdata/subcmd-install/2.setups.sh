@@ -82,10 +82,8 @@ elif [[ ! -z $(dinitctl --version 2>/dev/null) ]]; then
   done
   
 else
-  printf "${STY_RED}"
-  printf "====================INIT SYSTEM NOT FOUND====================\n"
-  printf "${STY_RST}"
-  pause
+  printf '%s\n' 'No supported init system detected' >&2
+  return 1
 fi
 
 if [[ "$OS_GROUP_ID" == "gentoo" ]]; then
