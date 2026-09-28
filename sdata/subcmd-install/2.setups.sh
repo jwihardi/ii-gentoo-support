@@ -27,7 +27,7 @@ v install-python-packages
 showfun setup_user_group
 v setup_user_group
 
-if [[ ! -z $(systemctl --version) ]]; then
+if [[ -d /run/systemd/system ]]; then
   # For Fedora, uinput is required for the virtual keyboard to function, and udev rules enable input group users to utilize it.
   if [[ "$OS_GROUP_ID" == "fedora" ]]; then
     v bash -c "echo uinput | sudo tee /etc/modules-load.d/uinput.conf"
@@ -48,7 +48,7 @@ if [[ ! -z $(systemctl --version) ]]; then
     fi
   fi
   v sudo systemctl enable bluetooth --now
-elif [[ ! -z $(openrc --version) ]]; then
+elif [[ -f /run/openrc/softlevel ]]; then
   v bash -c "echo 'modules=i2c-dev' | sudo tee -a /etc/conf.d/modules"
   v sudo rc-update add modules boot
   v sudo rc-update add ydotool default
